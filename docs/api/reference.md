@@ -638,6 +638,41 @@ Returns a dict of items with keys starting with prefix.
 
 ---
 
+## dates.parse_period
+
+Parse a natural-language date period. Exported from `genro_toolbox.dates` only.
+
+### Function Signature
+
+```python
+def parse_period(
+    text: str,
+    workdate: datetime.date,
+    locale: str,
+    pivot_year: int = 20,
+    locale_dir: Path | str | None = None,
+) -> DatePeriod
+```
+
+### Parameters
+
+- **text**: the period, e.g. `"mese scorso"`, `"today;today+7"`, `"from Q1 to Q2"`.
+- **workdate**: the date relative expressions refer to.
+- **locale**: `it`, `en`, or with region (`en_GB`, `it-IT`); the region selects the numeric date order.
+- **pivot_year**: two-digit years fall in `workdate.year + pivot_year - 100` .. `workdate.year + pivot_year - 1`.
+- **locale_dir**: folder with `<language>.json` files; default is the shipped `dates/locales/`.
+
+### Returns
+
+`DatePeriod(start, end)`, a `NamedTuple` of `datetime.date | None`. `None` is an open bound; both `None` means no period.
+
+### Raises
+
+- **PeriodError** (`ValueError`): the text is not recognized; attributes `value`, `locale`.
+- **PeriodLocaleError**: the language file is missing or lacks a key. Not a `PeriodError`.
+
+---
+
 ## Type Definitions
 
 ```python

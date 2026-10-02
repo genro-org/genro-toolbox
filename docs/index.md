@@ -66,6 +66,7 @@ user-guide/safe-is-instance
 user-guide/ascii-table
 user-guide/smartasync
 user-guide/smarttimer
+user-guide/dates
 user-guide/best-practices
 examples/index
 api/reference

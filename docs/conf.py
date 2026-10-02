@@ -2,6 +2,7 @@
 
 import os
 import sys
+from importlib.metadata import version as package_version
 from pathlib import Path
 
 # Add source directory to path for autodoc
@@ -11,8 +12,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 project = "Genro-Toolbox"
 copyright = "2025, Genropy Team"
 author = "Genropy Team"
-release = "0.3.0"
-version = "0.3"
+release = package_version("genro-toolbox")
+version = ".".join(release.split(".")[:2])
 
 # General configuration
 extensions = [

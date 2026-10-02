@@ -45,6 +45,7 @@ pip install genro-toolbox
 - **render_ascii_table** - ASCII table rendering with formatting
 - **render_markdown_table** - Markdown table rendering
 - **tags_match** - Boolean expression matcher for tag-based filtering
+- **dates.parse_period** - Natural-language date periods ("mese scorso", "from Q1 to Q2") to a start/end date pair, multilingual
 
 ## Examples
 
@@ -391,6 +392,37 @@ async def check_job(job_id):
 pollers = {}
 pollers["j1"] = set_interval(5.0, check_job, "j1")
 ```
+
+### dates.parse_period
+
+Parses a period written in natural language into a start and an end date,
+relative to a workdate. Either bound may be `None` (open period); both `None`
+means no filter. Unrecognized text raises `PeriodError` (a `ValueError`)
+carrying `value` and `locale`.
+
+```python
+from datetime import date
+from genro_toolbox.dates import parse_period
+
+wd = date(2026, 4, 15)
+parse_period("mese scorso", wd, "it")          # 2026-03-01 .. 2026-03-31
+parse_period("oggi-30;", wd, "it")             # 2026-03-16 .. None
+parse_period("from january to march", wd, "en")
+parse_period("ottobre scorso", wd, "it")       # 2025-10-01 .. 2025-10-31
+parse_period("Q1 2024", wd, "en")              # 2024-01-01 .. 2024-03-31
+parse_period("10/1/26", wd, "it")              # 2026-01-10 .. 2026-01-10
+```
+
+Supported forms: years, `today`/`oggi` with `+n`/`-n`, this/last/next week and
+month, quarters, months with year or `last`/`next`, weekdays, ISO and locale
+dates, ranges with `;` or `from ... to` / `dal ... al`. The full rules are in
+the `genro_toolbox.dates.period_parser` module docstring. Two-digit years use a
+window around the workdate set by `pivot_year` (default 20).
+
+Languages live in JSON files (`genro_toolbox/dates/locales/it.json`,
+`en.json`). To add one, write `<language>.json` with the same keys; pass
+`locale_dir=` to load it from your own folder. A missing file or key raises
+`PeriodLocaleError`.
 
 ## Philosophy
 

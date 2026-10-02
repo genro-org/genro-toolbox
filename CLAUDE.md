@@ -13,6 +13,7 @@ genro-toolbox/
 ├── src/genro_toolbox/
 │   ├── __init__.py      # Public API exports
 │   ├── ascii_table.py   # ASCII/Markdown table rendering
+│   ├── dates/           # parse_period (natural-language periods) + locales/*.json
 │   ├── decorators.py    # extract_kwargs decorator
 │   ├── dict_utils.py    # SmartOptions, filtered_dict, make_opts
 │   ├── smarttimer.py    # set_timeout, set_interval, cancel_timer

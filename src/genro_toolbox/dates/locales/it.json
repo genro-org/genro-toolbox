@@ -1,0 +1,37 @@
+{
+  "months": {
+    "gennaio": 1, "febbraio": 2, "marzo": 3, "aprile": 4, "maggio": 5, "giugno": 6,
+    "luglio": 7, "agosto": 8, "settembre": 9, "ottobre": 10, "novembre": 11, "dicembre": 12,
+    "gen": 1, "feb": 2, "mar": 3, "apr": 4, "mag": 5, "giu": 6,
+    "lug": 7, "ago": 8, "set": 9, "ott": 10, "nov": 11, "dic": 12
+  },
+  "weekdays": {
+    "lunedì": 0, "martedì": 1, "mercoledì": 2, "giovedì": 3,
+    "venerdì": 4, "sabato": 5, "domenica": 6,
+    "lun": 0, "mar": 1, "mer": 2, "gio": 3, "ven": 4, "sab": 5, "dom": 6
+  },
+  "quarters": {
+    "1º trimestre": 1, "2º trimestre": 2, "3º trimestre": 3, "4º trimestre": 4,
+    "1° trimestre": 1, "2° trimestre": 2, "3° trimestre": 3, "4° trimestre": 4,
+    "t1": 1, "t2": 2, "t3": 3, "t4": 4,
+    "q1": 1, "q2": 2, "q3": 3, "q4": 4
+  },
+  "keywords": {
+    "today": ["oggi"],
+    "yesterday": ["ieri"],
+    "tomorrow": ["domani"],
+    "this_week": ["questa settimana", "settimana"],
+    "last_week": ["settimana scorsa"],
+    "next_week": ["settimana prossima"],
+    "this_month": ["questo mese", "mese"],
+    "last_month": ["mese scorso"],
+    "next_month": ["mese prossimo"],
+    "last": ["scorso", "scorsa"],
+    "next": ["prossimo", "prossima"],
+    "articles": ["il", "lo", "la"],
+    "from": ["da", "dal", "dalla", "tra", "fra"],
+    "to": ["a", "al", "alla", "e"],
+    "no_period": ["-", "senza periodo", "sempre"]
+  },
+  "date_order": {"default": "DMY"}
+}

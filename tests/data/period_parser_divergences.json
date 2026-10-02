@@ -1,0 +1,3406 @@
+{
+ "reasons": {
+  "bare_month_end": "A month without year is the workdate's year on the end side too (legacy moved it to the past).",
+  "month_last_next": "'scorso'/'prossimo' after or before a month pick the latest/next such month; legacy ignored the word or failed.",
+  "quarter_forms": "Quarters accept q/t forms in both languages, with the year before or after; legacy failed on them.",
+  "tra_fra": "'tra'/'fra' are 'from' keywords; legacy failed.",
+  "day_month_name": "Day + month name + year is a date; legacy failed.",
+  "comma_removed": "Commas are removed and no longer separate bounds.",
+  "pivot_year": "Two-digit years use one pivot_year window on the workdate; legacy dates via Babel were always 20xx.",
+  "whole_words": "Keywords match whole words, not substrings.",
+  "no_time": "Times are not part of a period; legacy returned a datetime.",
+  "unsupported_locale": "Only shipped languages are supported; legacy read month names from Babel."
+ },
+ "cases": [
+  {
+   "text": "a dicembre",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "a dicembre",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-12-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "al marzo",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-03-31"
+  },
+  {
+   "text": "a marzo",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-03-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-01-31"
+  },
+  {
+   "text": "to january",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-01-31"
+  },
+  {
+   "text": "to april",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-04-30"
+  },
+  {
+   "text": "to april",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-04-30"
+  },
+  {
+   "text": "to december",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2024-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2026-12-31"
+  },
+  {
+   "text": "to december",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "bare_month_end",
+   "start": null,
+   "end": "2008-12-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "ottobre scorso",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2026-03-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-03-01",
+   "end": "2025-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-03-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-03-01",
+   "end": "2023-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2026-03-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2008-03-01",
+   "end": "2008-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2026-03-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-03-01",
+   "end": "2025-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-03-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-03-01",
+   "end": "2023-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2026-03-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "marzo scorso",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2008-03-01",
+   "end": "2008-03-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "lo scorso ottobre",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2027-10-01",
+   "end": "2027-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2024-10-01",
+   "end": "2024-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2008-10-01",
+   "end": "2008-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2027-10-01",
+   "end": "2027-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2024-10-01",
+   "end": "2024-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "ottobre prossimo",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2008-10-01",
+   "end": "2008-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "last october",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "month_last_next",
+   "start": "2026-10-01",
+   "end": "2026-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "month_last_next",
+   "start": "2023-10-01",
+   "end": "2023-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "month_last_next",
+   "start": "2025-10-01",
+   "end": "2025-10-31"
+  },
+  {
+   "text": "october last",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "month_last_next",
+   "start": "2007-10-01",
+   "end": "2007-10-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2008-01-01",
+   "end": "2008-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "q1",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2008-01-01",
+   "end": "2008-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2008-01-01",
+   "end": "2008-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "1° trimestre",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2008-01-01",
+   "end": "2008-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "q1 2024",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024q1",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "Q1 2024",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "2024Q1",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "quarter_forms",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "tra_fra",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "tra_fra",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "tra_fra",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "tra_fra",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "tra_fra",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "tra_fra",
+   "start": "2008-01-01",
+   "end": "2008-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "tra_fra",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "tra_fra",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "tra_fra",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "tra_fra",
+   "start": "2024-01-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "tra_fra",
+   "start": "2026-01-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "tra gennaio e marzo",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "tra_fra",
+   "start": "2008-01-01",
+   "end": "2008-03-31"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "10 gennaio 2026",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "day_month_name",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "january 10, 2026",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "comma_removed",
+   "start": "2026-01-10",
+   "end": "2026-01-10"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "comma_removed",
+   "start": "2007-02-01",
+   "end": "2007-02-01"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "comma_removed",
+   "start": "2007-01-02",
+   "end": "2007-01-02"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "comma_removed",
+   "start": "2007-01-02",
+   "end": "2007-01-02"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "comma_removed",
+   "start": "2007-01-02",
+   "end": "2007-01-02"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "comma_removed",
+   "start": "2007-01-02",
+   "end": "2007-01-02"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "comma_removed",
+   "start": "2007-01-02",
+   "end": "2007-01-02"
+  },
+  {
+   "text": "02 01, 2007",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "comma_removed",
+   "start": "2007-01-02",
+   "end": "2007-01-02"
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "2024,2025",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "comma_removed",
+   "error": true
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/46",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "pivot_year",
+   "start": "1946-01-10",
+   "end": "1946-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/47",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "pivot_year",
+   "start": "1947-01-10",
+   "end": "1947-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "10/1/99",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "pivot_year",
+   "start": "1999-01-10",
+   "end": "1999-01-10"
+  },
+  {
+   "text": "months",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "months",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "whole_words",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it",
+   "workdate": "2026-04-15",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it",
+   "workdate": "2026-12-31",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it",
+   "workdate": "2008-04-25",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it_IT",
+   "workdate": "2026-04-15",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it_IT",
+   "workdate": "2026-12-31",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "oggi alle 10:00",
+   "locale": "it_IT",
+   "workdate": "2008-04-25",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en",
+   "workdate": "2026-04-15",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en",
+   "workdate": "2026-12-31",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en",
+   "workdate": "2026-03-01",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en",
+   "workdate": "2008-04-25",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_US",
+   "workdate": "2026-04-15",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_US",
+   "workdate": "2026-12-31",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_US",
+   "workdate": "2026-03-01",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_US",
+   "workdate": "2008-04-25",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_GB",
+   "workdate": "2026-04-15",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_GB",
+   "workdate": "2026-12-31",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_GB",
+   "workdate": "2026-03-01",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "today at 10:00",
+   "locale": "en_GB",
+   "workdate": "2008-04-25",
+   "reason": "no_time",
+   "error": true
+  },
+  {
+   "text": "janvier",
+   "locale": "fr",
+   "workdate": "2026-04-15",
+   "reason": "unsupported_locale",
+   "error": true
+  },
+  {
+   "text": "janvier",
+   "locale": "fr",
+   "workdate": "2026-01-05",
+   "reason": "unsupported_locale",
+   "error": true
+  },
+  {
+   "text": "janvier",
+   "locale": "fr",
+   "workdate": "2026-12-31",
+   "reason": "unsupported_locale",
+   "error": true
+  },
+  {
+   "text": "janvier",
+   "locale": "fr",
+   "workdate": "2024-02-29",
+   "reason": "unsupported_locale",
+   "error": true
+  },
+  {
+   "text": "janvier",
+   "locale": "fr",
+   "workdate": "2026-03-01",
+   "reason": "unsupported_locale",
+   "error": true
+  },
+  {
+   "text": "janvier",
+   "locale": "fr",
+   "workdate": "2008-04-25",
+   "reason": "unsupported_locale",
+   "error": true
+  },
+  {
+   "text": "dal 23-12-07 a aprile",
+   "locale": "it",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": "2007-12-23",
+   "end": "2026-04-30"
+  },
+  {
+   "text": "dal 23-12-07 a aprile",
+   "locale": "it",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": "2007-12-23",
+   "end": "2024-04-30"
+  },
+  {
+   "text": "dal 23-12-07 a aprile",
+   "locale": "it",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": "2007-12-23",
+   "end": "2026-04-30"
+  },
+  {
+   "text": "dal 23-12-07 a aprile",
+   "locale": "it_IT",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": "2007-12-23",
+   "end": "2026-04-30"
+  },
+  {
+   "text": "dal 23-12-07 a aprile",
+   "locale": "it_IT",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": "2007-12-23",
+   "end": "2024-04-30"
+  },
+  {
+   "text": "dal 23-12-07 a aprile",
+   "locale": "it_IT",
+   "workdate": "2026-03-01",
+   "reason": "bare_month_end",
+   "start": "2007-12-23",
+   "end": "2026-04-30"
+  },
+  {
+   "text": "from december 06 to march",
+   "locale": "en",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": "2006-12-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "from december 06 to march",
+   "locale": "en",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": "2006-12-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "from december 06 to march",
+   "locale": "en_US",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": "2006-12-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "from december 06 to march",
+   "locale": "en_US",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": "2006-12-01",
+   "end": "2024-03-31"
+  },
+  {
+   "text": "from december 06 to march",
+   "locale": "en_GB",
+   "workdate": "2026-01-05",
+   "reason": "bare_month_end",
+   "start": "2006-12-01",
+   "end": "2026-03-31"
+  },
+  {
+   "text": "from december 06 to march",
+   "locale": "en_GB",
+   "workdate": "2024-02-29",
+   "reason": "bare_month_end",
+   "start": "2006-12-01",
+   "end": "2024-03-31"
+  }
+ ]
+}

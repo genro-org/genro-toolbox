@@ -1,0 +1,35 @@
+{
+  "months": {
+    "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
+    "july": 7, "august": 8, "september": 9, "october": 10, "november": 11, "december": 12,
+    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12
+  },
+  "weekdays": {
+    "monday": 0, "tuesday": 1, "wednesday": 2, "thursday": 3,
+    "friday": 4, "saturday": 5, "sunday": 6,
+    "mon": 0, "tue": 1, "wed": 2, "thu": 3, "fri": 4, "sat": 5, "sun": 6
+  },
+  "quarters": {
+    "1st quarter": 1, "2nd quarter": 2, "3rd quarter": 3, "4th quarter": 4,
+    "q1": 1, "q2": 2, "q3": 3, "q4": 4
+  },
+  "keywords": {
+    "today": ["today"],
+    "yesterday": ["yesterday"],
+    "tomorrow": ["tomorrow"],
+    "this_week": ["this week", "week"],
+    "last_week": ["last week"],
+    "next_week": ["next week"],
+    "this_month": ["this month", "month"],
+    "last_month": ["last month"],
+    "next_month": ["next month"],
+    "last": ["last"],
+    "next": ["next"],
+    "articles": ["the"],
+    "from": ["from", "between"],
+    "to": ["to", "and"],
+    "no_period": ["no period", "always"]
+  },
+  "date_order": {"default": "MDY", "GB": "DMY", "AU": "DMY", "IE": "DMY", "NZ": "DMY", "IN": "DMY"}
+}

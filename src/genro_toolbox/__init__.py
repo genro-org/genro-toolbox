@@ -20,7 +20,6 @@ from .smartasync import (
     smartcontinuation,
 )
 from .smartretry import RETRY_PRESETS, retry_call, smartretry
-from .smarttimer import cancel_timer, set_interval, set_timeout
 from .string_utils import smartsplit
 from .tags_match import RuleError, tags_match
 from .typeutils import is_awaitable, safe_is_instance
@@ -44,9 +43,6 @@ __all__ = [
     "set_sync",
     "set_async",
     "smartsplit",
-    "set_timeout",
-    "set_interval",
-    "cancel_timer",
     "smartretry",
     "retry_call",
     "RETRY_PRESETS",

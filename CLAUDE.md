@@ -15,12 +15,10 @@ genro-toolbox/
 │   ├── dates/           # parse_period (natural-language periods) + locales/*.json
 │   ├── decorators.py    # extract_kwargs decorator
 │   ├── dict_utils.py    # dictExtract
-│   ├── smarttimer.py    # set_timeout, set_interval, cancel_timer
 │   └── typeutils.py     # safe_is_instance
 ├── tests/
 │   ├── test_decorators.py
 │   ├── test_dict_utils.py
-│   ├── test_smarttimer.py
 │   └── test_typeutils.py
 ├── pyproject.toml
 ├── LICENSE              # Apache 2.0
@@ -33,9 +31,6 @@ genro-toolbox/
 from genro_toolbox import (
     extract_kwargs,      # Decorator for kwargs extraction by prefix
     safe_is_instance,    # Type check without importing
-    set_timeout,         # One-shot timer (needs a running event loop)
-    set_interval,        # Repeating timer (needs a running event loop)
-    cancel_timer,        # Cancel a timer by ID
 )
 ```
 

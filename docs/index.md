@@ -17,7 +17,6 @@ Genro-Toolbox is a lightweight, zero-dependency Python library providing core ut
 - **`tags_match`** - Boolean expression matcher for tag-based filtering
 - **`get_uuid`** - Sortable 22-char unique identifiers for distributed systems
 - **`smartasync`** - Unified sync/async API decorator with automatic context detection
-- **`smarttimer`** - Non-blocking timers (set_timeout/set_interval) for async code
 - **`safe_is_instance`** - Type checking without imports
 - **`smartretry`** - Retry decorator with exponential backoff for sync and async functions
 - **`sign` / `verify`** - HMAC-signed payloads with optional expiry
@@ -72,11 +71,10 @@ user-guide/safe-is-instance
 
 ```{toctree}
 :maxdepth: 2
-:caption: Async and Timing
+:caption: Async and Retry
 :hidden:
 
 user-guide/smartasync
-user-guide/smarttimer
 user-guide/smartretry
 ```
 

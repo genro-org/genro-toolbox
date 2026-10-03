@@ -37,7 +37,6 @@ pip install genro-toolbox
 - **get_uuid** - Sortable 22-char unique identifiers for distributed systems
 - **sign / verify** - HMAC-signed payloads with optional expiry, for data that leaves the server and comes back
 - **smartasync** - Unified sync/async API with automatic context detection
-- **smarttimer** - Non-blocking timers (setTimeout/setInterval) for async code
 - **safe_is_instance** - isinstance() without importing the class
 - **tags_match** - Boolean expression matcher for tag-based filtering
 - **dates.parse_period** - Natural-language date periods ("mese scorso", "from Q1 to Q2") to a start/end date pair, multilingual
@@ -221,32 +220,6 @@ from genro_toolbox import dictExtract
 
 kwargs = {"logging_level": "INFO", "logging_format": "json", "cache_ttl": 300}
 dictExtract(kwargs, "logging_")  # {'level': 'INFO', 'format': 'json'}
-```
-
-### smarttimer
-
-Non-blocking timers for async code. They need a running event loop; sync callbacks run in a thread:
-
-```python
-from genro_toolbox import set_timeout, set_interval, cancel_timer
-
-# Token refresh: renew 5 min before expiry (inside an async server)
-set_timeout(expires_in - 300, refresh_token)
-
-# Heartbeat: ping every 30s, start after 1s
-hb = set_interval(30.0, ws.send_json, {"type": "ping"}, initial_delay=1)
-
-# Cancel when done
-cancel_timer(hb)
-
-# Async callbacks work transparently
-async def check_job(job_id):
-    status = await api.get_status(job_id)
-    if status == "completed":
-        cancel_timer(pollers[job_id])
-
-pollers = {}
-pollers["j1"] = set_interval(5.0, check_job, "j1")
 ```
 
 ### dates.parse_period

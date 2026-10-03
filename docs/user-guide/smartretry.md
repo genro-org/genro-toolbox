@@ -260,6 +260,5 @@ RETRY_PRESETS: dict[str, dict[str, Any]]
 
 ## See Also
 
-- [smarttimer Guide](smarttimer.md) - Non-blocking timers
 - [smartasync Guide](smartasync.md) - Unified sync/async API
 - [API Reference](../api/reference.md) - Complete API documentation

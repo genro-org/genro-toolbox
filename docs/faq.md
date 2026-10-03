@@ -15,7 +15,7 @@ Genro-toolbox is a lightweight, zero-dependency Python library providing essenti
 
 ### What Python versions are supported?
 
-Python 3.10 and later. We use modern type hints (`|` union syntax, `dict[str, Any]`).
+Python 3.11 and later. We use modern type hints (`|` union syntax, `dict[str, Any]`).
 
 ## extract_kwargs
 
@@ -86,4 +86,4 @@ pip install genro-toolbox
 
 ### Type hints aren't working in my IDE
 
-Ensure you're using Python 3.10+ and your IDE supports modern type hints. The library uses `dict[str, Any]` syntax (not `Dict[str, Any]`).
+Ensure you're using Python 3.11+ and your IDE supports modern type hints. The library uses `dict[str, Any]` syntax (not `Dict[str, Any]`).

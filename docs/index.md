@@ -11,6 +11,7 @@ Genro-Toolbox is a lightweight, zero-dependency Python library providing core ut
 ## Features
 
 - **`extract_kwargs`** - Decorator for extracting and grouping keyword arguments by prefix
+- **`metadata`** - Decorator to stamp keyword arguments as attributes on functions or classes
 - **`dictExtract`** - Extract dict items by key prefix
 - **`smartsplit`** - Split strings honoring escaped separators
 - **`tags_match`** - Boolean expression matcher for tag-based filtering
@@ -18,9 +19,12 @@ Genro-Toolbox is a lightweight, zero-dependency Python library providing core ut
 - **`smartasync`** - Unified sync/async API decorator with automatic context detection
 - **`smarttimer`** - Non-blocking timers (set_timeout/set_interval) with sync/async detection
 - **`safe_is_instance`** - Type checking without imports
+- **`smartretry`** - Retry decorator with exponential backoff for sync and async functions
+- **`sign` / `verify`** - HMAC-signed payloads with optional expiry
+- **`dates.parse_period`** - Natural-language date periods to a start/end pair, multilingual
 - **Zero dependencies** - Pure Python standard library only
 - **Full type hints** - Complete typing support
-- **Python 3.10+** - Modern Python
+- **Python 3.11+** - Modern Python
 
 ## Quick Example
 
@@ -55,10 +59,13 @@ self
 user-guide/installation
 user-guide/quickstart
 user-guide/extract-kwargs
+user-guide/metadata
 user-guide/tags-match
 user-guide/safe-is-instance
 user-guide/smartasync
 user-guide/smarttimer
+user-guide/smartretry
+user-guide/signing
 user-guide/dates
 user-guide/best-practices
 examples/index

@@ -50,7 +50,7 @@ pytest tests/ --cov=src/genro_toolbox --cov-report=term-missing
 
 ### Code Style
 
-- Python 3.10+
+- Python 3.11+
 - Type hints required
 - English for all code, comments, and commit messages
 

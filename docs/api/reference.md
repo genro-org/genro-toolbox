@@ -42,6 +42,49 @@ def extract_kwargs(
 
 See [extract_kwargs Guide](../user-guide/extract-kwargs.md) for detailed examples.
 
+## metadata
+
+```{eval-rst}
+.. autofunction:: genro_toolbox.metadata
+```
+
+### Function Signature
+
+```python
+def metadata(*, prefix: str | None = None, **attributes: Any) -> Callable[[T], T]
+```
+
+### Parameters
+
+**prefix** : `str | None`
+: Keyword-only. When given, each attribute name becomes `<prefix>_<key>`. Default: `None`.
+
+**attributes** : `Any`
+: Keyword arguments written onto the target with `setattr`.
+
+### Returns
+
+**Callable[[T], T]**
+: A decorator that sets the attributes and returns the target itself (no wrapper).
+
+### Raises
+
+Nothing of its own. `setattr` errors on the target propagate (e.g. on an object with `__slots__`).
+
+### Examples
+
+```python
+from genro_toolbox import metadata
+
+@metadata(prefix="rpc", public=True)
+def handler():
+    pass
+
+handler.rpc_public  # True
+```
+
+See [metadata Guide](../user-guide/metadata.md) for detailed examples.
+
 ## safe_is_instance
 
 ```{eval-rst}
@@ -396,6 +439,257 @@ async def notify(msg):
 
 set_timeout(5.0, notify, "done")
 ```
+
+---
+
+## smartretry
+
+```{eval-rst}
+.. autofunction:: genro_toolbox.smartretry
+```
+
+### Function Signature
+
+```python
+def smartretry(
+    max_attempts: int = 3,
+    delay: float = 1.0,
+    backoff: float = 2.0,
+    jitter: bool = True,
+    on: tuple[type[BaseException], ...] = (Exception,),
+) -> Callable
+```
+
+### Parameters
+
+**max_attempts** : `int`
+: Maximum number of attempts, the first call included. Default: 3.
+
+**delay** : `float`
+: Seconds to wait before the first retry. Default: 1.0.
+
+**backoff** : `float`
+: Multiplier applied to the wait after each retry. Default: 2.0.
+
+**jitter** : `bool`
+: When `True`, each wait is multiplied by a random factor in [1.0, 1.1). Default: `True`.
+
+**on** : `tuple[type[BaseException], ...]`
+: Exception types that trigger a retry. Other exceptions propagate at once. Default: `(Exception,)`.
+
+### Returns
+
+**Callable**
+: A decorator. It returns an async wrapper for a coroutine function, a sync wrapper otherwise.
+
+### Raises
+
+**TypeError**
+: If used without parentheses (`@smartretry` instead of `@smartretry()`).
+
+The decorated function raises the exception of its last attempt when all attempts fail.
+
+### Examples
+
+```python
+from genro_toolbox import smartretry
+
+@smartretry(max_attempts=3, delay=0.1, on=(ConnectionError,))
+def ping():
+    return "pong"
+
+ping()  # 'pong'
+```
+
+See [smartretry Guide](../user-guide/smartretry.md) for detailed examples.
+
+## retry_call
+
+```{eval-rst}
+.. autofunction:: genro_toolbox.retry_call
+```
+
+### Function Signature
+
+```python
+def retry_call(
+    func: Callable,
+    args: tuple = (),
+    kwargs: dict[str, Any] | None = None,
+    *,
+    max_attempts: int = 3,
+    delay: float = 1.0,
+    backoff: float = 2.0,
+    jitter: bool = True,
+    on: tuple[type[BaseException], ...] = (Exception,),
+    policy: dict[str, Any] | None = None,
+) -> Any
+```
+
+### Parameters
+
+**func** : `Callable`
+: The function to call, sync or async.
+
+**args** : `tuple`
+: Positional arguments for `func`. Default: `()`.
+
+**kwargs** : `dict[str, Any] | None`
+: Keyword arguments for `func`. Default: `None` (no keyword arguments).
+
+**max_attempts**, **delay**, **backoff**, **jitter**, **on**
+: Same meaning as in [smartretry](#smartretry).
+
+**policy** : `dict[str, Any] | None`
+: A dict with any of the keys `max_attempts`, `delay`, `backoff`, `jitter`, `on`.
+  Its keys override the keyword arguments. Typically a value of `RETRY_PRESETS`.
+
+### Returns
+
+**Any**
+: The result of `func`. For an async `func`, a coroutine to await.
+
+### Raises
+
+The exception of the last attempt when all attempts fail.
+
+### Examples
+
+```python
+from genro_toolbox import retry_call, RETRY_PRESETS
+
+def add(a, b):
+    return a + b
+
+retry_call(add, (2, 3))  # 5
+retry_call(add, (2, 3), policy=RETRY_PRESETS["network"])  # 5
+```
+
+## RETRY_PRESETS
+
+`dict[str, dict[str, Any]]` with three predefined policies for `retry_call(policy=...)`
+or `smartretry(**preset)`.
+
+| Preset | `max_attempts` | `delay` | `backoff` | `jitter` | `on` |
+|---|---|---|---|---|---|
+| `network` | 3 | 1.0 | 2.0 | True | `ConnectionError`, `TimeoutError`, `OSError` |
+| `aggressive` | 5 | 0.5 | 2.0 | True | `Exception` |
+| `gentle` | 2 | 2.0 | 1.5 | False | `ConnectionError`, `TimeoutError` |
+
+## sign
+
+```{eval-rst}
+.. autofunction:: genro_toolbox.sign
+```
+
+### Function Signature
+
+```python
+def sign(payload: str, key: str, expires_in: int | None = None) -> str
+```
+
+### Parameters
+
+**payload** : `str`
+: The string to protect. Any content is allowed.
+
+**key** : `str`
+: Secret key. Keep it server-side.
+
+**expires_in** : `int | None`
+: Lifetime in seconds. `None` means no expiry. Default: `None`.
+
+### Returns
+
+**str**
+: The token `<payload>.<expiry>.<signature>`, three base64url fields. The payload is encoded, not encrypted.
+
+### Raises
+
+**ValueError**
+: If `key` is empty, or `expires_in` is zero or negative.
+
+### Examples
+
+```python
+from genro_toolbox import sign
+
+sign("hello", key="secret")  # 'aGVsbG8..fWq4jxqaMCKOVQynnV5s3vNU93bfSRtZgxQdJ6kugHo'
+```
+
+See [Signing Guide](../user-guide/signing.md) for detailed examples.
+
+## verify
+
+```{eval-rst}
+.. autofunction:: genro_toolbox.verify
+```
+
+### Function Signature
+
+```python
+def verify(token: str, key: str) -> str
+```
+
+### Parameters
+
+**token** : `str`
+: A token produced by `sign`.
+
+**key** : `str`
+: The same secret key used to sign.
+
+### Returns
+
+**str**
+: The original payload, unchanged.
+
+### Raises
+
+**ValueError**
+: If `key` is empty.
+
+**SignatureExpired**
+: The signature is valid but the token has expired.
+
+**SignatureError**
+: The token is malformed, or the signature does not match.
+
+### Examples
+
+```python
+from genro_toolbox import sign, verify, SignatureError
+
+token = sign("/srv/data", key="secret", expires_in=300)
+verify(token, key="secret")  # '/srv/data'
+
+try:
+    verify(token, key="wrong")
+except SignatureError:
+    rejected = True
+
+rejected  # True
+```
+
+## SignatureError
+
+```{eval-rst}
+.. autoclass:: genro_toolbox.SignatureError
+```
+
+Raised by `verify` when the token is malformed or its signature does not match.
+
+Inherits from `Exception`.
+
+## SignatureExpired
+
+```{eval-rst}
+.. autoclass:: genro_toolbox.SignatureExpired
+```
+
+Raised by `verify` when the signature is valid but the token's expiry has passed.
+
+Inherits from `SignatureError`.
 
 ---
 

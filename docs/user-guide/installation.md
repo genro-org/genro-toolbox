@@ -4,7 +4,7 @@ Genro-Toolbox is a Python package that can be installed via pip.
 
 ## Requirements
 
-- Python 3.10 or higher
+- Python 3.11 or higher
 - No external dependencies (pure Python standard library)
 
 ## Install from PyPI

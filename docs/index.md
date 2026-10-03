@@ -59,6 +59,7 @@ self
 user-guide/installation
 user-guide/quickstart
 user-guide/extract-kwargs
+user-guide/metadata
 user-guide/smart-options
 user-guide/treedict
 user-guide/tags-match
@@ -66,6 +67,8 @@ user-guide/safe-is-instance
 user-guide/ascii-table
 user-guide/smartasync
 user-guide/smarttimer
+user-guide/smartretry
+user-guide/signing
 user-guide/dates
 user-guide/best-practices
 examples/index

@@ -1,27 +1,17 @@
 # smarttimer — non-blocking timers
 
-The `smarttimer` module provides `setTimeout`/`setInterval` semantics (like JavaScript) that work transparently in both sync and async Python contexts.
+The `smarttimer` module provides `setTimeout`/`setInterval` semantics (like JavaScript) for **async** Python code. Timers are `asyncio` tasks on the running event loop, so they must be created inside a running loop: called anywhere else, `set_timeout` and `set_interval` raise `RuntimeError`.
 
 ## Overview
 
 ```mermaid
 flowchart TD
-    subgraph "Call Site"
-        A[set_timeout / set_interval]
-    end
-
-    subgraph "Context Detection"
-        B{Running event loop?}
-    end
-
-    subgraph "Execution Strategy"
-        C[threading.Timer / Thread]
-        D[asyncio.create_task]
-    end
-
-    A --> B
-    B -->|No - Sync context| C
-    B -->|Yes - Async context| D
+    A[set_timeout / set_interval] --> B{Running event loop?}
+    B -->|No| E[RuntimeError]
+    B -->|Yes| D[asyncio task on that loop]
+    D --> F{Callback}
+    F -->|async| G[awaited]
+    F -->|sync| H[asyncio.to_thread]
 ```
 
 ## Installation
@@ -76,20 +66,27 @@ cancel_timer(timer_id)  # True — cancelled before firing
 cancel_timer(timer_id)  # False — already gone
 ```
 
-## Context Detection
+## Callbacks
 
-The module automatically detects whether it's running in a sync or async context:
+Timers always run on the event loop; the callback type decides how it is called:
 
-| Context | Timer mechanism | Callback: sync | Callback: async |
-|---------|----------------|-----------------|-----------------|
-| Sync | `threading.Timer` / `Thread` | Direct call | Temp event loop |
-| Async | `asyncio.Task` | `asyncio.to_thread` | `await` |
+| Callback | How it runs |
+|----------|-------------|
+| `async def` | awaited in the timer task |
+| plain function | `asyncio.to_thread`, so it never blocks the loop |
+
+Outside a running event loop both functions raise:
+
+```python
+set_timeout(1.0, print)
+# RuntimeError: set_timeout/set_interval require a running async event loop. ...
+```
 
 ## Real-World Examples
 
-### Token refresh (inside a server/worker)
+### Token refresh (inside an async server or worker)
 
-Renew an auth token before it expires, without blocking request handling:
+Renew an auth token before it expires, without blocking request handling. `set_timeout` is called from a coroutine, so a loop is running; the async `_refresh` is awaited when the timer fires:
 
 ```python
 from genro_toolbox import set_timeout, cancel_timer
@@ -99,7 +96,7 @@ class TokenManager:
         self.auth_client = auth_client
         self._refresh_timer = None
 
-    def on_token_received(self, token, expires_in):
+    async def on_token_received(self, token, expires_in):
         self.token = token
         # Schedule refresh 5 minutes before expiry
         if self._refresh_timer:
@@ -108,9 +105,9 @@ class TokenManager:
             expires_in - 300, self._refresh
         )
 
-    def _refresh(self):
-        new_token = self.auth_client.refresh()
-        self.on_token_received(new_token, new_token.expires_in)
+    async def _refresh(self):
+        new_token = await self.auth_client.refresh()
+        await self.on_token_received(new_token, new_token.expires_in)
 ```
 
 ### Heartbeat / keepalive (ASGI server)
@@ -148,20 +145,8 @@ async def check_job(job_id):
         cancel_timer(pollers.pop(job_id))
         await handle_result(job_id, status)
 
-def start_polling(job_id):
+async def start_polling(job_id):
     pollers[job_id] = set_interval(5.0, check_job, job_id)
-```
-
-### Cache invalidation (sync WSGI server)
-
-Periodically clear a cache while the server is running:
-
-```python
-from genro_toolbox import set_interval
-
-def setup_cache(app):
-    app.cache = {}
-    set_interval(60.0, app.cache.clear)
 ```
 
 ## Timer IDs
@@ -173,10 +158,6 @@ tid = set_timeout(5.0, callback)
 print(tid)  # e.g., "Z00005KmLxHj7F9aGbCd3e"
 ```
 
-## Thread Safety
+## Lifetime
 
-The timer registry is protected by a lock. Creating and cancelling timers is safe from any thread.
-
-## Note on Standalone Scripts
-
-In sync standalone scripts (no server/framework), the process must stay alive for timers to fire — daemon threads die when the main thread exits. Inside servers, workers, or async event loops the process is already alive and timers work as expected.
+A timer lives as long as its event loop. When the loop stops (for example at the end of `asyncio.run()`), pending timers are cancelled with it. `cancel_timer` removes a timer before that; a finished one-shot timer removes itself.

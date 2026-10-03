@@ -33,8 +33,8 @@ genro-toolbox/
 from genro_toolbox import (
     extract_kwargs,      # Decorator for kwargs extraction by prefix
     safe_is_instance,    # Type check without importing
-    set_timeout,         # One-shot timer (sync/async)
-    set_interval,        # Repeating timer (sync/async)
+    set_timeout,         # One-shot timer (needs a running event loop)
+    set_interval,        # Repeating timer (needs a running event loop)
     cancel_timer,        # Cancel a timer by ID
 )
 ```

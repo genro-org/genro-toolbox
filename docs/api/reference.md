@@ -360,7 +360,7 @@ Schedule a one-shot callback after `delay` seconds. Returns a timer ID for cance
 
 **Parameters**:
 - `delay`: Seconds to wait before executing callback
-- `callback`: Function to call (sync or async)
+- `callback`: Function to call: async is awaited, sync runs in `asyncio.to_thread`
 - `*args, **kwargs`: Arguments forwarded to callback
 
 **Returns**: `str` — Timer ID
@@ -376,7 +376,7 @@ Schedule a repeating callback every `delay` seconds. Returns a timer ID for canc
 
 **Parameters**:
 - `delay`: Seconds between each callback execution
-- `callback`: Function to call (sync or async)
+- `callback`: Function to call: async is awaited, sync runs in `asyncio.to_thread`
 - `initial_delay`: Delay before first execution (defaults to `delay`)
 - `*args, **kwargs`: Arguments forwarded to callback
 
@@ -395,32 +395,28 @@ Cancel a timer by its ID.
 
 **Returns**: `True` if the timer was found and cancelled, `False` otherwise
 
-### Context Detection
+### Context
 
-| Context | Callback | Strategy |
-|---------|----------|----------|
-| Sync | Sync | threading.Timer, direct call |
-| Sync | Async | threading.Timer, temp event loop |
-| Async | Async | asyncio task, await |
-| Async | Sync | asyncio task, to_thread |
+Both functions require a running event loop and raise `RuntimeError` otherwise. Async callbacks are awaited; sync callbacks run in `asyncio.to_thread`.
 
 ### Examples
 
 ```python
 from genro_toolbox import set_timeout, set_interval, cancel_timer
 
-# One-shot
-tid = set_timeout(2.0, print, "Hello!")
+async def main():
+    # One-shot
+    tid = set_timeout(2.0, print, "Hello!")
 
-# Repeating
-tid = set_interval(1.0, print, "tick")
-cancel_timer(tid)
+    # Repeating
+    tid = set_interval(1.0, print, "tick")
+    cancel_timer(tid)
 
-# Async callback
-async def notify(msg):
-    await send_notification(msg)
+    # Async callback
+    async def notify(msg):
+        await send_notification(msg)
 
-set_timeout(5.0, notify, "done")
+    set_timeout(5.0, notify, "done")
 ```
 
 ---

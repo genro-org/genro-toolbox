@@ -37,7 +37,7 @@ pip install genro-toolbox
 - **get_uuid** - Sortable 22-char unique identifiers for distributed systems
 - **sign / verify** - HMAC-signed payloads with optional expiry, for data that leaves the server and comes back
 - **smartasync** - Unified sync/async API with automatic context detection
-- **smarttimer** - Non-blocking timers (setTimeout/setInterval) with sync/async detection
+- **smarttimer** - Non-blocking timers (setTimeout/setInterval) for async code
 - **safe_is_instance** - isinstance() without importing the class
 - **tags_match** - Boolean expression matcher for tag-based filtering
 - **dates.parse_period** - Natural-language date periods ("mese scorso", "from Q1 to Q2") to a start/end date pair, multilingual
@@ -225,15 +225,15 @@ dictExtract(kwargs, "logging_")  # {'level': 'INFO', 'format': 'json'}
 
 ### smarttimer
 
-Non-blocking timers with automatic sync/async detection:
+Non-blocking timers for async code. They need a running event loop; sync callbacks run in a thread:
 
 ```python
 from genro_toolbox import set_timeout, set_interval, cancel_timer
 
-# Token refresh: renew 5 min before expiry (inside a server)
+# Token refresh: renew 5 min before expiry (inside an async server)
 set_timeout(expires_in - 300, refresh_token)
 
-# Heartbeat: ping every 30s, start after 1s (works in both sync and async)
+# Heartbeat: ping every 30s, start after 1s
 hb = set_interval(30.0, ws.send_json, {"type": "ping"}, initial_delay=1)
 
 # Cancel when done

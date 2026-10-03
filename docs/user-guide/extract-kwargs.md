@@ -132,7 +132,6 @@ result = obj.my_method(logging_level="INFO", timeout=30)
 **Options:**
 - `pop`: If `True`, remove extracted params from source (default for `param=True`)
 - `slice_prefix`: If `True`, remove prefix from keys (default: `True`)
-- `is_list`: Reserved for future use
 
 ### Keep Prefix in Keys
 
@@ -249,7 +248,7 @@ def extract_kwargs(
         _dictkwargs: Optional dict of extraction specs (alternative to **extraction_specs)
         **extraction_specs: Prefix names with values:
                            - True: Extract and pop
-                           - dict: Custom options (pop, slice_prefix, is_list)
+                           - dict: Custom options (pop, slice_prefix)
 
     Returns:
         Decorated function

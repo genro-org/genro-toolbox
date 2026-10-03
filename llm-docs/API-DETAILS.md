@@ -84,23 +84,13 @@ tags_match("(admin|public)&!internal", {"admin"})  # True
 
 ## Helper Functions
 
-### filtered_dict
-
-```python
-def filtered_dict(
-    data: Mapping[str, Any] | None,
-    filter_fn: Callable[[str, Any], bool] | None = None,
-) -> dict[str, Any]: ...
-```
-
 ### dictExtract
 
 ```python
 def dictExtract(
-    mydict: dict,
+    source_dict: dict,
     prefix: str,
     pop: bool = False,
     slice_prefix: bool = True,
-    is_list: bool = False,  # unused
 ) -> dict: ...
 ```

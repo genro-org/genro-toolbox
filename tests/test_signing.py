@@ -3,6 +3,9 @@
 
 """Tests for signing module."""
 
+import base64
+import hashlib
+import hmac
 import json
 import time
 
@@ -164,3 +167,11 @@ class TestTokenShape:
 
     def test_expiry_field_empty_when_no_expiry(self):
         assert sign("hello", KEY).split(".")[1] == ""
+
+    def test_two_fields_with_valid_signature_is_malformed(self):
+        """A correctly signed prefix without the expiry field is still refused."""
+        signed_part = base64.urlsafe_b64encode(b"hello").rstrip(b"=").decode()
+        mac = hmac.new(KEY.encode(), signed_part.encode(), hashlib.sha256).digest()
+        signature = base64.urlsafe_b64encode(mac).rstrip(b"=").decode()
+        with pytest.raises(SignatureError, match="Malformed"):
+            verify(f"{signed_part}.{signature}", KEY)

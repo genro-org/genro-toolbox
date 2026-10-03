@@ -1,25 +1,5 @@
 """Tests for dict utility helpers."""
 
-from genro_toolbox.dict_utils import filtered_dict
-
-
-class TestFilteredDict:
-    """Tests for filtered_dict helper."""
-
-    def test_returns_copy_when_no_filter(self):
-        source = {"a": 1, "b": 2}
-        result = filtered_dict(source)
-        assert result == source
-        assert result is not source
-
-    def test_filters_none_values(self):
-        source = {"a": 1, "b": None, "c": 3}
-        result = filtered_dict(source, lambda key, value: value is not None)
-        assert result == {"a": 1, "c": 3}
-
-    def test_handles_none_source(self):
-        assert filtered_dict(None) == {}
-
 
 class TestDictExtract:
     """Tests for legacy dictExtract function."""

@@ -31,7 +31,7 @@ def extract_kwargs(
 **extraction_specs** : `Any`
 : Keyword arguments where keys are prefix names and values specify extraction behavior:
   - `True`: Extract parameters with this prefix and remove them from source (`pop=True`)
-  - `dict`: Custom extraction options (`pop`, `slice_prefix`, `is_list`)
+  - `dict`: Custom extraction options (`pop`, `slice_prefix`)
 
 ### Returns
 
@@ -300,30 +300,13 @@ async def main():
 
 ### Cache Reset
 
-For testing, you can reset the cache:
+For testing, clear the per-thread event loops:
 
 ```python
-manager.fetch_data._smartasync_reset_cache()
+from genro_toolbox import reset_smartasync_cache
+
+reset_smartasync_cache()
 ```
-
-## Helper Functions
-
-### filtered_dict
-
-```python
-def filtered_dict(
-    data: Optional[Mapping[str, Any]],
-    filter_fn: Optional[Callable[[str, Any], bool]] = None,
-) -> Dict[str, Any]
-```
-
-Return a dict filtered through `filter_fn`.
-
-**Parameters**:
-- `data`: Source mapping (can be None)
-- `filter_fn`: Optional filter callable `(key, value) → bool`
-
-**Returns**: Filtered dictionary
 
 ## smartsplit
 
@@ -699,11 +682,10 @@ Utility function for extracting dict items by key prefix. Used internally by `ex
 
 ```python
 def dictExtract(
-    mydict: dict,
+    source_dict: dict,
     prefix: str,
     pop: bool = False,
     slice_prefix: bool = True,
-    is_list: bool = False
 ) -> dict
 ```
 

@@ -48,7 +48,7 @@ genro-toolbox/
 ├── src/genro_toolbox/       # Source code
 │   ├── __init__.py          # Public API
 │   ├── decorators.py        # extract_kwargs implementation
-│   ├── dict_utils.py        # dictExtract, filtered_dict
+│   ├── dict_utils.py        # dictExtract
 │   ├── typeutils.py         # safe_is_instance
 │
 ├── tests/                   # Test suite

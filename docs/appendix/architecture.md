@@ -45,11 +45,10 @@ Internal utility for prefix-based dict extraction:
 
 ```python
 def dictExtract(
-    mydict: dict,
+    source_dict: dict,
     prefix: str,
     pop: bool = False,
     slice_prefix: bool = True,
-    is_list: bool = False
 ) -> dict
 ```
 
@@ -79,8 +78,8 @@ Genro-Toolbox uses **only Python standard library**:
 The decorator uses constant reuse to minimize overhead:
 
 ```python
-_DEFAULT_EXTRACT_OPTIONS = {'slice_prefix': True, 'pop': False, 'is_list': False}
-_POP_EXTRACT_OPTIONS = {'slice_prefix': True, 'pop': True, 'is_list': False}
+_DEFAULT_EXTRACT_OPTIONS = {'slice_prefix': True, 'pop': False}
+_POP_EXTRACT_OPTIONS = {'slice_prefix': True, 'pop': True}
 ```
 
 Instead of creating new dicts on every call, we reuse pre-defined constants.

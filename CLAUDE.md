@@ -14,7 +14,7 @@ genro-toolbox/
 │   ├── __init__.py      # Public API exports
 │   ├── dates/           # parse_period (natural-language periods) + locales/*.json
 │   ├── decorators.py    # extract_kwargs decorator
-│   ├── dict_utils.py    # dictExtract, filtered_dict
+│   ├── dict_utils.py    # dictExtract
 │   ├── smarttimer.py    # set_timeout, set_interval, cancel_timer
 │   └── typeutils.py     # safe_is_instance
 ├── tests/

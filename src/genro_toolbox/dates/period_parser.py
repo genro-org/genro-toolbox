@@ -89,7 +89,7 @@ import datetime
 import json
 import re
 from pathlib import Path
-from typing import NamedTuple
+from typing import NamedTuple, TypedDict
 
 DEFAULT_LOCALE_DIR = Path(__file__).parent / "locales"
 ENGLISH = "en"
@@ -140,6 +140,16 @@ class MonthRef(NamedTuple):
     month: int
 
 
+class LanguageData(TypedDict):
+    """The content of one language JSON file."""
+
+    months: dict[str, int]
+    weekdays: dict[str, int]
+    quarters: dict[str, int]
+    keywords: dict[str, list[str]]
+    date_order: dict[str, str]
+
+
 class PeriodLocale:
     """The language data of one locale, read from its JSON file."""
 
@@ -154,11 +164,11 @@ class PeriodLocale:
         else:
             self.english_keywords = self.get_language_data(DEFAULT_LOCALE_DIR, ENGLISH)["keywords"]
 
-    def get_language_data(self, directory: Path, language: str) -> dict:
+    def get_language_data(self, directory: Path, language: str) -> LanguageData:
         path = directory / f"{language}.json"
         if not path.is_file():
             raise PeriodLocaleError(f"No period language file for {language!r}: {path}")
-        data = json.loads(path.read_text(encoding="utf-8"))
+        data: LanguageData = json.loads(path.read_text(encoding="utf-8"))
         for section in REQUIRED_SECTIONS:
             if section not in data:
                 raise PeriodLocaleError(f"{path}: missing section {section!r}")

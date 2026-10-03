@@ -7,9 +7,9 @@ Provides setTimeout/setInterval semantics (like JavaScript) for async contexts.
 Raises RuntimeError if called outside a running event loop.
 
 API:
-    set_timeout(delay, callback, *args, **kwargs) -> timer_id
-    set_interval(delay, callback, *args, **kwargs) -> timer_id
-    cancel_timer(timer_id) -> bool
+    - ``set_timeout(delay, callback, *args, **kwargs) -> timer_id``
+    - ``set_interval(delay, callback, *args, **kwargs) -> timer_id``
+    - ``cancel_timer(timer_id) -> bool``
 
 Callback handling:
     - Async callback: awaited directly

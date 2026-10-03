@@ -1,6 +1,5 @@
 """Sphinx configuration for Genro-Toolbox documentation."""
 
-import os
 import sys
 from importlib.metadata import version as package_version
 from pathlib import Path

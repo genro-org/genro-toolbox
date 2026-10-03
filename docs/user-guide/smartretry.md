@@ -1,4 +1,4 @@
-# smartretry Guide
+# smartretry — retry with exponential backoff
 
 Retry a function with exponential backoff, for sync and async code.
 

@@ -1,4 +1,4 @@
-# SmartTimer - Non-Blocking Timers
+# smarttimer — non-blocking timers
 
 The `smarttimer` module provides `setTimeout`/`setInterval` semantics (like JavaScript) that work transparently in both sync and async Python contexts.
 

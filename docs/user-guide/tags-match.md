@@ -1,4 +1,4 @@
-# tags_match Guide
+# tags_match — boolean tag expressions
 
 Boolean expression matcher for tag-based filtering.
 

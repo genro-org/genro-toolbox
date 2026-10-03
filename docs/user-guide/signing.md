@@ -1,4 +1,4 @@
-# Signing Guide
+# sign / verify — HMAC-signed payloads
 
 Sign a payload with HMAC-SHA256, with an optional expiry, and verify it later.
 

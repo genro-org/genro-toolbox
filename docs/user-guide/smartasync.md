@@ -1,4 +1,4 @@
-# SmartAsync - Unified Sync/Async API
+# smartasync — unified sync/async API
 
 The `smartasync` module provides utilities for writing code that works seamlessly in both synchronous and asynchronous contexts, without requiring the caller to know which context they're in.
 

@@ -1,4 +1,4 @@
-# metadata Guide
+# metadata — stamp attributes on functions and classes
 
 Decorator that stamps keyword arguments as attributes on a function or a class.
 

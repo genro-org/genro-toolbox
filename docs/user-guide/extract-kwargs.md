@@ -1,4 +1,4 @@
-# extract_kwargs Decorator
+# extract_kwargs — group keyword arguments by prefix
 
 Complete guide to the `extract_kwargs` decorator.
 

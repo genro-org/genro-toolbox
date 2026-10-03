@@ -52,25 +52,67 @@ setup_service(
 
 ```{toctree}
 :maxdepth: 2
-:caption: Contents
+:caption: Getting Started
 :hidden:
 
 self
 user-guide/installation
 user-guide/quickstart
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Functions and Arguments
+:hidden:
+
 user-guide/extract-kwargs
 user-guide/metadata
-user-guide/tags-match
 user-guide/safe-is-instance
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Async and Timing
+:hidden:
+
 user-guide/smartasync
 user-guide/smarttimer
 user-guide/smartretry
-user-guide/signing
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Data and Parsing
+:hidden:
+
+user-guide/tags-match
 user-guide/dates
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Security
+:hidden:
+
+user-guide/signing
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Guides and Reference
+:hidden:
+
 user-guide/best-practices
 examples/index
 api/reference
 faq
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Project
+:hidden:
+
 appendix/architecture
 appendix/contributing
 ```

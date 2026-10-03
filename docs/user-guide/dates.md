@@ -1,4 +1,4 @@
-# Date Periods Guide
+# dates.parse_period — natural-language date periods
 
 Parse a date period written in natural language into a start and an end date.
 

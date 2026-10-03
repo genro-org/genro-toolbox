@@ -1,4 +1,4 @@
-# safe_is_instance Guide
+# safe_is_instance — isinstance without imports
 
 Check if an object is an instance of a class by its fully qualified name, without importing the class.
 

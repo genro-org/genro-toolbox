@@ -17,33 +17,6 @@ Genro-toolbox is a lightweight, zero-dependency Python library providing essenti
 
 Python 3.10 and later. We use modern type hints (`|` union syntax, `dict[str, Any]`).
 
-## SmartOptions
-
-### Why use SmartOptions instead of a plain dict?
-
-SmartOptions provides:
-- Path notation access (`opts["server.host"]` for nested values)
-- Automatic merging of defaults with runtime values
-- Filtering of `None` and empty values
-- Loading from files (YAML, JSON, TOML, INI)
-- Loading from environment variables and CLI args
-- Immutable copy via `as_dict()`
-
-### What counts as "empty" when using ignore_empty=True?
-
-Empty strings `""`, empty lists `[]`, empty dicts `{}`, empty tuples `()`, empty sets `set()`, empty bytes `b""`, and empty frozensets. Note that `None` is NOT considered empty - use `ignore_none=True` for that.
-
-### Can I modify SmartOptions after creation?
-
-Yes. SmartOptions is mutable:
-
-```python
-opts = SmartOptions({"timeout": 10}, {})
-opts["timeout"] = 20       # Set
-opts["new_key"] = "value"  # Add
-del opts["timeout"]        # Delete
-```
-
 ## extract_kwargs
 
 ### Why does extract_kwargs always return a dict, never None?
@@ -100,29 +73,6 @@ safe_is_instance(obj, "module.Child")   # True
 ### Is safe_is_instance cached?
 
 Yes. The MRO lookup is cached using `@lru_cache` for performance. Multiple calls with the same class are fast.
-
-## Tables
-
-### What's the difference between render_ascii_table and render_markdown_table?
-
-- `render_ascii_table`: Box-drawing characters, word wrapping, max_width support
-- `render_markdown_table`: GitHub-compatible markdown format
-
-### How do I format dates?
-
-Use the `format` field with a simplified date format:
-
-```python
-{"name": "Date", "type": "date", "format": "dd/mm/yyyy"}
-# Input: "2025-11-24" → Output: "24/11/2025"
-```
-
-Supported: `yyyy`, `yy`, `mm`, `dd`, `HH`, `MM`, `SS`
-
-### How does boolean formatting work?
-
-Values `"true"`, `"yes"`, `"1"` (case-insensitive) → `"true"`
-Values `"false"`, `"no"`, `"0"` (case-insensitive) → `"false"`
 
 ## Troubleshooting
 

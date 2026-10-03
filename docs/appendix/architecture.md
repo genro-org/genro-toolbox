@@ -190,12 +190,9 @@ tests/
 │   └── TestExtractKwargsAdapter    # Adapter tests
 ├── test_dict_utils.py
 │   ├── TestFilteredDict            # Dict filtering
-│   ├── TestMakeOpts                # Option merging
-│   └── TestSmartOptions            # SmartOptions class
 ├── test_typeutils.py
 │   ├── TestSafeIsInstance          # Type checking
 │   └── TestSafeIsInstanceEdgeCases # Edge cases
-└── test_ascii_table.py             # Table rendering
 ```
 
 **Coverage**: 100% test coverage goal

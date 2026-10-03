@@ -30,9 +30,6 @@ pip install genro-toolbox
 
 ## Features
 
-- **SmartOptions** - Multi-source config with merge via `+` operator
-- **TreeDict** - Hierarchical dict with dot notation and path access
-- **DictObj** - Dict subclass with dot-access for attribute-style read/write
 - **extract_kwargs** - Decorator to group kwargs by prefix
 - **metadata** - Decorator to stamp keyword arguments as attributes on functions or classes
 - **dictExtract** - Extract dict items by key prefix
@@ -42,112 +39,10 @@ pip install genro-toolbox
 - **smartasync** - Unified sync/async API with automatic context detection
 - **smarttimer** - Non-blocking timers (setTimeout/setInterval) with sync/async detection
 - **safe_is_instance** - isinstance() without importing the class
-- **render_ascii_table** - ASCII table rendering with formatting
-- **render_markdown_table** - Markdown table rendering
 - **tags_match** - Boolean expression matcher for tag-based filtering
 - **dates.parse_period** - Natural-language date periods ("mese scorso", "from Q1 to Q2") to a start/end date pair, multilingual
 
 ## Examples
-
-### SmartOptions
-
-Load config from multiple sources with type conversion:
-
-```python
-from genro_toolbox import SmartOptions
-import sys
-
-def serve(host: str = '127.0.0.1', port: int = 8000, debug: bool = False):
-    pass
-
-# Load from env and argv with automatic type conversion
-# Priority: defaults < env < argv
-config = SmartOptions(serve, env='MYAPP', argv=sys.argv[1:])
-
-config["host"]   # from env (MYAPP_HOST) or default
-config["port"]   # int from env (MYAPP_PORT) or argv
-config["debug"]  # True if --debug passed
-```
-
-Compose with `+` for file configs:
-
-```python
-config = (
-    SmartOptions('config.yaml') +      # file config
-    SmartOptions(serve, env='MYAPP', argv=sys.argv[1:])  # defaults < env < argv
-)
-```
-
-Load from files (YAML, JSON, TOML, INI):
-
-```python
-opts = SmartOptions('config.yaml')
-opts["server.host"]  # nested dicts become SmartOptions
-opts["middleware.cors"]  # string lists become feature flags (True)
-opts["apps.shop.module"]  # list of dicts indexed by first key
-```
-
-Basic merge with filtering:
-
-```python
-opts = SmartOptions(
-    {"timeout": 30},                    # runtime values
-    {"timeout": 10, "retries": 3},      # defaults
-    ignore_none=True,
-    ignore_empty=True,
-)
-
-opts["timeout"]   # 30 (runtime wins)
-opts["retries"]   # 3 (from defaults)
-```
-
-### TreeDict
-
-Hierarchical dictionary with path access:
-
-```python
-from genro_toolbox import TreeDict
-
-# Create from nested dict
-td = TreeDict({"user": {"name": "Alice", "prefs": {"theme": "dark"}}})
-
-# Or from JSON string
-td = TreeDict('{"user": {"name": "Alice"}}')
-
-# Or from config file (JSON, YAML, TOML, INI)
-td = TreeDict.from_file("config.yaml")
-
-# Path string access
-td["user.name"]        # "Alice"
-td["user.prefs.theme"] # "dark"
-td["missing"]          # None (no KeyError)
-
-# Auto-create intermediate dicts on write
-td["settings.db.host"] = "localhost"
-td["settings.db.host"] # "localhost"
-
-# List access with #N syntax
-td = TreeDict({"users": [{"name": "Alice"}, {"name": "Bob"}]})
-td["users.#0.name"]    # "Alice"
-td["users.#1.name"]    # "Bob"
-
-# Walk all paths
-for path, value in td.walk():
-    print(f"{path} = {value}")
-# users.#0.name = Alice
-# users.#1.name = Bob
-
-# Thread-safe access (sync)
-with td:
-    td["counter"] = td["counter"] + 1
-
-# Async-safe access
-async with td:
-    td["counter"] = td["counter"] + 1
-
-# Convert back to dict
-td.as_dict()  # {"user": {"name": "Alice", ...}}
-```
 
 ### extract_kwargs Decorator
 
@@ -197,32 +92,6 @@ from genro_toolbox import safe_is_instance
 # Check type without importing
 safe_is_instance(42, "builtins.int")              # True
 safe_is_instance(my_obj, "mypackage.BaseClass")   # True (includes subclasses)
-```
-
-### ASCII & Markdown Tables
-
-```python
-from genro_toolbox import render_ascii_table, render_markdown_table
-
-data = {
-    "headers": [
-        {"name": "Name", "type": "str"},
-        {"name": "Active", "type": "bool"},
-    ],
-    "rows": [
-        ["Alice", "yes"],
-        ["Bob", "no"],
-    ],
-}
-
-print(render_ascii_table(data))
-# +-------+--------+
-# |Name   |Active  |
-# +-------+--------+
-# |Alice  |true    |
-# +-------+--------+
-# |Bob    |false   |
-# +-------+--------+
 ```
 
 ### tags_match
@@ -333,19 +202,6 @@ class LegacyProcessor:
 async def main():
     proc = LegacyProcessor()
     result = await proc.cpu_intensive(data)  # Won't block event loop
-```
-
-### DictObj
-
-```python
-from genro_toolbox import DictObj
-
-ctx = DictObj()
-ctx.db = connection
-ctx.session = session_obj
-ctx.db.execute(...)   # dot-access
-"db" in ctx           # True (dict-access)
-del ctx.session       # works too
 ```
 
 ### smartsplit

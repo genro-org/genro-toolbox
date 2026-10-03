@@ -12,14 +12,12 @@ Part of **genro-modules** (Apache 2.0 license).
 genro-toolbox/
 ├── src/genro_toolbox/
 │   ├── __init__.py      # Public API exports
-│   ├── ascii_table.py   # ASCII/Markdown table rendering
 │   ├── dates/           # parse_period (natural-language periods) + locales/*.json
 │   ├── decorators.py    # extract_kwargs decorator
-│   ├── dict_utils.py    # SmartOptions, filtered_dict, make_opts
+│   ├── dict_utils.py    # dictExtract, filtered_dict
 │   ├── smarttimer.py    # set_timeout, set_interval, cancel_timer
 │   └── typeutils.py     # safe_is_instance
 ├── tests/
-│   ├── test_ascii_table.py
 │   ├── test_decorators.py
 │   ├── test_dict_utils.py
 │   ├── test_smarttimer.py
@@ -34,10 +32,7 @@ genro-toolbox/
 ```python
 from genro_toolbox import (
     extract_kwargs,      # Decorator for kwargs extraction by prefix
-    SmartOptions,        # Namespace for option management
     safe_is_instance,    # Type check without importing
-    render_ascii_table,  # ASCII table rendering
-    render_markdown_table,  # Markdown table rendering
     set_timeout,         # One-shot timer (sync/async)
     set_interval,        # Repeating timer (sync/async)
     cancel_timer,        # Cancel a timer by ID

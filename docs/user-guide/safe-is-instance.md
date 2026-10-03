@@ -200,6 +200,5 @@ def safe_is_instance(obj: Any, class_full_name: str) -> bool:
 
 ## See Also
 
-- [SmartOptions Guide](smart-options.md) - Option merging and filtering
 - [extract_kwargs Guide](extract-kwargs.md) - Kwargs extraction decorator
 - [API Reference](../api/reference.md) - Complete API documentation

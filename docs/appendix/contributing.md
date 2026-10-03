@@ -48,15 +48,13 @@ genro-toolbox/
 ├── src/genro_toolbox/       # Source code
 │   ├── __init__.py          # Public API
 │   ├── decorators.py        # extract_kwargs implementation
-│   ├── dict_utils.py        # SmartOptions and helpers
+│   ├── dict_utils.py        # dictExtract, filtered_dict
 │   ├── typeutils.py         # safe_is_instance
-│   └── ascii_table.py       # Table rendering
 │
 ├── tests/                   # Test suite
 │   ├── test_decorators.py
 │   ├── test_dict_utils.py
 │   ├── test_typeutils.py
-│   └── test_ascii_table.py
 │
 ├── docs/                    # Sphinx documentation
 │   ├── conf.py              # Sphinx config

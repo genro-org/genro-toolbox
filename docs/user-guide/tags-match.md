@@ -305,6 +305,5 @@ TAG      := [a-zA-Z_][a-zA-Z0-9_]* (excluding keywords)
 
 ## See Also
 
-- [SmartOptions Guide](smart-options.md) - Configuration management
 - [Best Practices](best-practices.md) - Production patterns
 - [API Reference](../api/reference.md) - Complete API documentation

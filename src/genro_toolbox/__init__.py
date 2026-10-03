@@ -4,7 +4,7 @@ Genro-Toolbox - Essential utilities for the Genro ecosystem (Genro Kyō).
 A lightweight, zero-dependency library providing core utilities.
 """
 
-__version__ = "0.16.0"
+__version__ = "0.16.1"
 
 from .decorators import extract_kwargs, metadata
 from .dict_utils import dictExtract

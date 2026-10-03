@@ -53,7 +53,7 @@ jobs:
 
       - name: Test import
         run: |
-          python -c "from genro_toolbox import SmartOptions, extract_kwargs, safe_is_instance; print('Import OK')"
+          python -c "from genro_toolbox import extract_kwargs, safe_is_instance; from genro_toolbox.dates import parse_period; print('Import OK')"
 
   publish:
     runs-on: ubuntu-latest

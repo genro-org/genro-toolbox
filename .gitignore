@@ -91,3 +91,7 @@ venv.bak/
 # Coordination (see worktree/subtask conventions)
 .subtasks/
 worktrees/
+
+# Local Claude Code and quality-tool folders
+.claude/
+.enhancer/

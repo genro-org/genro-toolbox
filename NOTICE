@@ -1,0 +1,30 @@
+Genro-Toolbox
+Copyright 2025 Softwell S.r.l.
+
+This project is licensed under Apache-2.0; see LICENSE.
+
+src/genro_toolbox/named_list.py contains NamedList (ported from GnrNamedList)
+and a private copy of
+the deprecated decorator from GenroPy.
+tests/test_named_list_legacy.py ports the eight GnrNamedList tests from
+the same project. This port is distributed under Apache-2.0.
+
+Frozen upstream revision: fa35e5adfa6ad1b269f3a22a9b12c4c1ee6513ea
+https://github.com/genropy/genropy
+  gnrpy/gnr/core/gnrlist.py
+  gnrpy/gnr/core/gnrdecorator.py
+  gnrpy/tests/core/gnrlist_test.py
+  gnrpy/LICENSE
+
+Original source attribution:
+Copyright (c) 2004 - 2007 Softwell sas - Milano
+Written by Giovanni Porcari, Michele Bertoldi, Saverio Porcari,
+Francesco Porcari, Francesco Cavazzana.
+
+Modified for genro-toolbox on 2026-10-14: renamed GnrNamedList to NamedList,
+extracted the container and private
+deprecation decorator without GenroPy/SQL dependencies, adapted imports and
+formatting, removed an unused local, and corrected the iteritems docstring
+to describe its existing order. Constructor validation now rejects invalid
+positions and mismatched initial value counts. Other legacy behavior is
+retained, including limitations documented in docs/user-guide/named-list.md.

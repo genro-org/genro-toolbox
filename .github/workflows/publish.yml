@@ -53,7 +53,22 @@ jobs:
 
       - name: Test import
         run: |
-          python -c "from genro_toolbox import extract_kwargs, safe_is_instance; from genro_toolbox.dates import parse_period; print('Import OK')"
+          python - <<'PY'
+          from genro_toolbox import NamedList, extract_kwargs, safe_is_instance
+          from genro_toolbox.dates import parse_period
+
+          row = NamedList({"code": 0, "total": 1}, ["ABC", 10])
+          row["total"] = 20
+          assert row[1] == 20
+          assert dict(row) == {"code": "ABC", "total": 20}
+          try:
+              NamedList({"x": 1}, (10, 20))
+          except ValueError:
+              pass
+          else:
+              raise AssertionError("Inconsistent rows must be rejected")
+          print("Import and NamedList validation OK")
+          PY
 
   publish:
     runs-on: ubuntu-latest

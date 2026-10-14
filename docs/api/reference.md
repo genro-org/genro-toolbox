@@ -646,6 +646,19 @@ def parse_period(
 
 ---
 
+## NamedList
+
+```{eval-rst}
+.. autoclass:: genro_toolbox.NamedList
+   :members:
+```
+
+Public import: `from genro_toolbox import NamedList` (also available from
+`genro_toolbox.named_list`). See the [guide](../user-guide/named-list.md) for
+construction, shared indices, copying and preserved legacy limitations.
+The constructor raises `ValueError` for invalid positions or a supplied value
+count different from the index size. `values=None` initializes all fields to `None`.
+
 ## Type Definitions
 
 ```python

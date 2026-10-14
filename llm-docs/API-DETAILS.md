@@ -1,5 +1,34 @@
 # genro-toolbox API Reference
 
+## NamedList
+
+```python
+from genro_toolbox import NamedList
+
+row = NamedList(index={"code": 0, "total": 1}, values=["ABC", 10])
+```
+
+Available since 0.18.0. A `list` subclass with a shared name-to-position index,
+without SQL or external dependencies.
+
+- `row[name]` / `row[position]`: read or assign; a new name adds a field.
+- Iteration/unpacking yield values; `dict(row)` explicitly converts by name.
+- Constructor positions must be unique plain integers `0 .. len(index)-1`;
+  supplied values must have exactly the same length. Violations raise `ValueError`.
+- `values=None` creates one `None` per column; iterable values are copied once.
+- `keys()` / `items()` follow position order; `iteritems()` follows index insertion order.
+- `values()` returns a tuple padded with `None`; `get(key, default)` handles absent keys.
+- `update(mapping)`, `extractItems(columns)`, `extractValues(columns)` and `has_key(key)`
+  preserve their legacy behavior. Falsy extraction columns mean all columns.
+- The index is retained by reference. Later growth leaves unmodified sibling rows
+  physically short: named reads return `None`, but `items()` and `repr()` can fail.
+- Deepcopy of an entire result preserves sharing within the copy and isolates it
+  from the original; slicing and `copy()` return plain lists.
+- Structural mutations do not reindex. `pop` is deprecated. Failed positional
+  writes can pad short rows; slice errors can be masked. Updates are nontransactional.
+
+See the [full guide](../docs/user-guide/named-list.md) for the tested contract.
+
 ## extract_kwargs
 
 ```python

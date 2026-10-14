@@ -33,6 +33,7 @@ pip install genro-toolbox
 - **extract_kwargs** - Decorator to group kwargs by prefix
 - **metadata** - Decorator to stamp keyword arguments as attributes on functions or classes
 - **dictExtract** - Extract dict items by key prefix
+- **NamedList** - Mutable list with access by column name or position and a shared index ([guide](docs/user-guide/named-list.md))
 - **smartsplit** - Split strings honoring escaped separators
 - **get_uuid** - Sortable 22-char unique identifiers for distributed systems
 - **sign / verify** - HMAC-signed payloads with optional expiry, for data that leaves the server and comes back
@@ -42,6 +43,32 @@ pip install genro-toolbox
 - **dates.parse_period** - Natural-language date periods ("mese scorso", "from Q1 to Q2") to a start/end date pair, multilingual
 
 ## Examples
+
+### NamedList
+
+Available since **0.18.0**: mutable rows with access by name and position,
+iteration over values, and explicit conversion to a dictionary.
+
+```python
+from genro_toolbox import NamedList
+
+index = {"code": 0, "total": 1}
+row = NamedList(index, ["ABC", 10])
+row["total"] = 20
+assert row[1] == 20
+assert tuple(row) == ("ABC", 20)
+assert dict(row) == {"code": "ABC", "total": 20}
+```
+
+The constructor raises `ValueError` if positions are not unique integers
+covering `0 .. len(index)-1`, or the supplied value count differs from the
+index size. `values=None` initializes every field to `None`. This rejects
+misaligned rows produced by duplicate query aliases before data can be overwritten.
+
+Rows can share the same index. Adding a named field extends the index;
+existing sibling rows read the new field as `None` until assigned.
+Structural list mutations do not maintain the index, and `pop` is deprecated.
+See the [guide](docs/user-guide/named-list.md) for copying and remaining legacy limits.
 
 ### extract_kwargs Decorator
 

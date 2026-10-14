@@ -4,10 +4,11 @@ Genro-Toolbox - Essential utilities for the Genro ecosystem (Genro Kyō).
 A lightweight, zero-dependency library providing core utilities.
 """
 
-__version__ = "0.17.0"
+__version__ = "0.18.0"
 
 from .decorators import extract_kwargs, metadata
 from .dict_utils import dictExtract
+from .named_list import NamedList
 from .signing import SignatureError, SignatureExpired, sign, verify
 from .smartasync import (
     SmartLock,
@@ -29,6 +30,7 @@ __all__ = [
     "extract_kwargs",
     "metadata",
     "dictExtract",
+    "NamedList",
     "safe_is_instance",
     "is_awaitable",
     "tags_match",

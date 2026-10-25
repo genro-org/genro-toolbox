@@ -1,0 +1,41 @@
+{
+  "name": "@genrojs/toolbox",
+  "version": "0.19.0",
+  "description": "JavaScript twin of genro-toolbox: natural-language date and period parser with the same results as the Python library.",
+  "main": "js/src/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./js/src/index.d.ts",
+      "default": "./js/src/index.js"
+    }
+  },
+  "types": "./js/src/index.d.ts",
+  "scripts": {
+    "test": "node --test js/test/*.test.js",
+    "build:locales": "node js/scripts/build-locales.js"
+  },
+  "keywords": [
+    "genro",
+    "dates",
+    "period",
+    "parser",
+    "natural-language"
+  ],
+  "author": "Genropy Team",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/genro-org/genro-toolbox"
+  },
+  "files": [
+    "js/src/**/*.js",
+    "js/src/**/*.d.ts",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

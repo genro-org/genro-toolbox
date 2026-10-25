@@ -28,9 +28,8 @@ A lightweight, zero-dependency Python library providing core utilities that can 
 pip install genro-toolbox
 ```
 
-The JavaScript package `@genrojs/toolbox` (npm) / `@genro/toolbox` (JSR)
-lives in `js/` and is released from the same tag. See
-[JavaScript](#javascript).
+The JavaScript package `@genrojs/toolbox` (npm) lives in `js/` and is
+released from the same tag. See [JavaScript](#javascript).
 
 ## Features
 

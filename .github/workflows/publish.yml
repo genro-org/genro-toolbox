@@ -126,27 +126,3 @@ jobs:
           else
             npm publish --access public
           fi
-
-  jsr:
-    # Tokenless OIDC: the JSR package @genro/toolbox is linked to genro-org/genro-toolbox.
-    # Skips a version already on JSR.
-    runs-on: ubuntu-latest
-    needs: [test, test-js]
-    permissions:
-      contents: read
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Publish @genro/toolbox
-        run: |
-          VERSION=$(node -p "require('./jsr.json').version")
-          if curl -fsS https://jsr.io/@genro/toolbox/meta.json | node -e "process.exit(JSON.parse(require('fs').readFileSync(0)).versions['$VERSION'] ? 0 : 1)"; then
-            echo "@genro/toolbox@$VERSION is already on JSR"
-          else
-            npx jsr publish
-          fi

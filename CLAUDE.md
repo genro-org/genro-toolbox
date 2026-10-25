@@ -20,6 +20,11 @@ genro-toolbox/
 │   ├── test_decorators.py
 │   ├── test_dict_utils.py
 │   └── test_typeutils.py
+├── js/                  # @genrojs/toolbox (npm)
+│   ├── src/dates/       # parseDateExpression; locales.js is generated
+│   ├── scripts/         # build-locales.js (JSON -> locales.js)
+│   └── test/            # node --test; corpus read from tests/data/
+├── package.json         # JS package metadata, same version as pyproject
 ├── pyproject.toml
 ├── LICENSE              # Apache 2.0
 └── README.md
@@ -42,6 +47,14 @@ from genro_toolbox import (
 pytest tests/
 pytest tests/ --cov=src/genro_toolbox --cov-report=term-missing
 ```
+
+```bash
+npm test                 # JavaScript tests, including the shared corpus
+npm run build:locales    # after editing src/genro_toolbox/dates/locales/*.json
+```
+
+A release bumps the version in pyproject.toml, `__init__.py` and package.json
+together; the `v*` tag publishes PyPI and npm.
 
 ### Code Style
 

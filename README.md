@@ -28,6 +28,9 @@ A lightweight, zero-dependency Python library providing core utilities that can 
 pip install genro-toolbox
 ```
 
+The JavaScript package `@genrojs/toolbox` (npm) lives in `js/` and is
+released from the same tag. See [JavaScript](#javascript).
+
 ## Features
 
 - **extract_kwargs** - Decorator to group kwargs by prefix
@@ -279,6 +282,36 @@ Languages live in JSON files (`genro_toolbox/dates/locales/it.json`,
 `en.json`). To add one, write `<language>.json` with the same keys; pass
 `locale_dir=` to load it from your own folder. A missing file or key raises
 `PeriodLocaleError`.
+
+## JavaScript
+
+`@genrojs/toolbox` holds the JavaScript side of `dates.parse_period`. It has no
+dependencies and no build step, and it never reads the clock or the timezone.
+
+```bash
+npm install @genrojs/toolbox
+```
+
+```javascript
+import {parseDateExpression} from '@genrojs/toolbox';
+
+parseDateExpression('mese scorso', {workdate: '2026-04-15', locale: 'it'});
+// {ok: true, kind: 'period', start: '2026-03-01', end: '2026-03-31'}
+parseDateExpression('10/1/26', {workdate: '2026-04-15', locale: 'it'});
+// {ok: true, kind: 'date', date: '2026-01-10'}
+parseDateExpression('boh', {workdate: '2026-04-15', locale: 'it'});
+// {ok: false, error: {code: 'UNRECOGNIZED_EXPRESSION', message: '...'}}
+```
+
+Dates are ISO strings (`YYYY-MM-DD`); an open bound is `null`. The option
+`twoDigitYearAhead` (default 20) is the Python `pivot_year`.
+
+Python and JavaScript give the same result on every case of
+`tests/data/period_parser_corpus.json` (with the overrides of
+`period_parser_divergences.json`): pytest and `npm test` read the same files.
+The vocabulary in `js/src/dates/locales.js` is generated from
+`src/genro_toolbox/dates/locales/*.json` by `npm run build:locales`; a test
+fails when the two differ.
 
 ## Philosophy
 
